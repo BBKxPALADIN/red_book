@@ -1,0 +1,50 @@
+name: red_book
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.1 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^4.6.1
+  # rest api
+  dio: ^4.0.6
+  dio_retry_plus: ^1.0.2
+  # retrofit
+  retrofit: ^3.0.1+1
+  # chuck
+  chuck_interceptor: ^1.0.0
+  # image svg widget
+  flutter_svg: ^1.0.3
+  #image cache widget
+  cached_network_image: ^3.2.0
+  #google translation
+  translator: ^0.1.7
+  #keyboard dismiss
+  keyboard_dismisser: ^2.0.1
+  #swipe to bottom refresh widget
+  pull_to_refresh: ^2.0.0
+  # hive no sql database
+  hive: ^2.1.0
+  hive_flutter: ^1.1.0
+  # select image gallery
+  image_picker: ^0.8.5
+  # screen_utils
+  flutter_screenutil: ^5.3.1
+  # path provider
+  path_provider: ^2.0.9
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+flutter:
+
+  uses-material-design: true
