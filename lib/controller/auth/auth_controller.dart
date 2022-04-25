@@ -36,7 +36,7 @@ class AuthController extends BaseController {
       );
       _login(request);
     } else {
-      showError(null, message: 'Email format incorrect');
+      showError(null, message: 'Incorrect login or password');
     }
   }
 

@@ -8,6 +8,7 @@ import 'package:retrofit/retrofit.dart';
 import '../../core/constants/constants.dart';
 import '../../routes/app_routes.dart';
 import '../models/requests/auth_request.dart';
+import '../models/requests/new_user_request.dart';
 
 part 'api_client.g.dart';
 
@@ -80,5 +81,42 @@ abstract class ApiClient {
   @POST('/v1/login')
   Future<ResponseHandler> loginRequest(
     @Body() AuthRequest request,
+  );
+
+  @GET('/v1/user-types')
+  Future<ResponseHandler> getUserTypes(
+    @Query('limit') int limit,
+    @Query('page') int page,
+  );
+
+  @POST('/v1/user')
+  Future<ResponseHandler> createUserRequest(
+    @Body() NewUserRequest request,
+  );
+
+  @GET('/v1/research')
+  Future<ResponseHandler> getAllResearches(
+    @Query('limit') int limit,
+    @Query('page') int page,
+  );
+
+  @GET('/v1/research')
+  Future<ResponseHandler> getUserResearches(
+    @Query('limit') int limit,
+    @Query('page') int page,
+    @Query('sub_type_id') int subTypeId,
+    @Query('user_id') int userId,
+  );
+
+  @GET('/v1/research')
+  Future<ResponseHandler> getAllConfirmations(
+    @Query('limit') int limit,
+    @Query('page') int page,
+    @Query('is_confirmed') bool isConfirmed,
+  );
+
+  @GET('v1/user/{id}')
+  Future<ResponseHandler> getPersonalInfo(
+    @Path('id') id,
   );
 }

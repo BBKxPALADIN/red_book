@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
 import 'package:red_book/bindings/admin_bindings.dart';
 import 'package:red_book/bindings/auth_bindings.dart';
+import 'package:red_book/bindings/researcher_bindings.dart';
 import 'package:red_book/bindings/visitor_bindings.dart';
 import 'package:red_book/ui/admin/admin_main_page.dart';
 import 'package:red_book/ui/admin/new_user_page.dart';
 import 'package:red_book/ui/auth/login_page.dart';
+import 'package:red_book/ui/researcher/researcher_main_page.dart';
 import 'package:red_book/ui/visitor/visitor_page.dart';
 import '../bindings/splash_bindings.dart';
 import '../ui/internet_connection/internet_connection_page.dart';
@@ -40,6 +42,11 @@ class AppPages {
     GetPage(
       name: AppRoutes.newUser,
       page: () => const NewUserPage(),
+    ),
+    GetPage(
+      name: AppRoutes.researcher,
+      page: () => const ResearcherMainPage(),
+      binding: ResearcherBindings(),
     ),
   ];
 }
