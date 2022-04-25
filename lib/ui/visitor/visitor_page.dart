@@ -2,6 +2,8 @@ import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:flutter/material.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:red_book/core/theme/app_colors.dart';
+import 'package:red_book/data/source/local_source.dart';
+import 'package:red_book/ui/auth/login_page.dart';
 import 'package:red_book/ui/visitor/visit_animals_page.dart';
 import 'all_animals_page.dart';
 
@@ -37,11 +39,13 @@ class _VisitorPageState extends State<VisitorPage> {
   ]);
 
   double bottomNavBarHeight = 50;
+  late String userType;
 
   @override
   void initState() {
     super.initState();
     _navigationController = CircularBottomNavigationController(selectedPos);
+    userType = LocalSource.instance.getUserType();
   }
 
   @override
@@ -49,9 +53,9 @@ class _VisitorPageState extends State<VisitorPage> {
     return Scaffold(
       body: IndexedStack(
         index: _navigationController.value,
-        children: const [
-          AllAnimalsPage(),
-          VisitAnimalsPage(),
+        children: [
+          const AllAnimalsPage(),
+          userType.isNotEmpty ? const VisitAnimalsPage() : const AuthPage(),
         ],
       ),
       bottomNavigationBar: SafeArea(

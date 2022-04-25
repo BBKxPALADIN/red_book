@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
+import 'package:red_book/bindings/admin_bindings.dart';
+import 'package:red_book/bindings/auth_bindings.dart';
 import 'package:red_book/bindings/visitor_bindings.dart';
+import 'package:red_book/ui/admin/admin_main_page.dart';
+import 'package:red_book/ui/auth/login_page.dart';
 import 'package:red_book/ui/visitor/visitor_page.dart';
 import '../bindings/splash_bindings.dart';
 import '../ui/internet_connection/internet_connection_page.dart';
@@ -21,6 +25,16 @@ class AppPages {
     GetPage(
       name: AppRoutes.internetConnection,
       page: () => const InternetConnectionPage(),
+    ),
+    GetPage(
+      name: AppRoutes.auth,
+      page: () => const AuthPage(),
+      binding: AuthBindings(),
+    ),
+    GetPage(
+      name: AppRoutes.auth,
+      page: () => const AdminMainPage(),
+      binding: AdminBindings(),
     ),
   ];
 }

@@ -7,7 +7,7 @@ import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 import '../../core/constants/constants.dart';
 import '../../routes/app_routes.dart';
-import '../models/all_animals_response.dart';
+import '../models/requests/auth_request.dart';
 
 part 'api_client.g.dart';
 
@@ -75,5 +75,10 @@ abstract class ApiClient {
   Future<ResponseHandler> getAllUsers(
     @Query('limit') int limit,
     @Query('page') int page,
+  );
+
+  @POST('/v1/login')
+  Future<ResponseHandler> loginRequest(
+    @Body() AuthRequest request,
   );
 }

@@ -53,6 +53,10 @@ class LocalSource {
     await _localStorage?.delete(AppKeys.accessToken);
   }
 
+  Future<void> logOut() async {
+    await _localStorage?.delete(AppKeys.userType);
+  }
+
   bool hasProfile() {
     return _localStorage?.get(AppKeys.hasProfile, defaultValue: false) ?? false;
   }

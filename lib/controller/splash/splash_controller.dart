@@ -11,9 +11,9 @@ class SplashController extends BaseController {
       const Duration(seconds: 3),
       () {
         if(LocalSource.instance.getUserType().isEmpty){
-          Get.toNamed(AppRoutes.visitor);
+          Get.offAndToNamed(AppRoutes.visitor);
         }else{
-          Get.toNamed(AppRoutes.visitor);
+          Get.offAndToNamed(AppRoutes.visitor);
         }
       },
     );
