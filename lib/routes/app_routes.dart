@@ -8,4 +8,5 @@ abstract class AppRoutes {
   static const internetConnection = '/internet_connection';
   static const researcher = '/researcher';
   static const confirmer = '/confirmer';
+  static const newUser = '/newUser';
 }

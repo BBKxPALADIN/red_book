@@ -34,7 +34,7 @@ class AppThemes {
       },
     ),
     appBarTheme: const AppBarTheme(
-      elevation: 0,
+      elevation: 1,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         systemNavigationBarColor: Colors.white,

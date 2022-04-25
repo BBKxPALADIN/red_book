@@ -3,6 +3,7 @@ import 'package:red_book/bindings/admin_bindings.dart';
 import 'package:red_book/bindings/auth_bindings.dart';
 import 'package:red_book/bindings/visitor_bindings.dart';
 import 'package:red_book/ui/admin/admin_main_page.dart';
+import 'package:red_book/ui/admin/new_user_page.dart';
 import 'package:red_book/ui/auth/login_page.dart';
 import 'package:red_book/ui/visitor/visitor_page.dart';
 import '../bindings/splash_bindings.dart';
@@ -32,9 +33,13 @@ class AppPages {
       binding: AuthBindings(),
     ),
     GetPage(
-      name: AppRoutes.auth,
+      name: AppRoutes.admin,
       page: () => const AdminMainPage(),
       binding: AdminBindings(),
+    ),
+    GetPage(
+      name: AppRoutes.newUser,
+      page: () => const NewUserPage(),
     ),
   ];
 }

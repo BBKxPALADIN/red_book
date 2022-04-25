@@ -10,8 +10,8 @@ class SplashController extends BaseController {
     await Future.delayed(
       const Duration(seconds: 3),
       () {
-        if(LocalSource.instance.getUserType().isEmpty){
-          Get.offAndToNamed(AppRoutes.visitor);
+        if(LocalSource.instance.getUserType()=='superadmin'){
+          Get.offAndToNamed(AppRoutes.admin);
         }else{
           Get.offAndToNamed(AppRoutes.visitor);
         }
