@@ -13,7 +13,7 @@ abstract class AppColors {
   static const darkGray5 = Color(0xFF48535B);
   static const triarity = Color(0xFF92979B);
   static const border = Color(0xFFE5E9EB);
-  static const assets = Color(0xff438BF9);
+  static const assets = Color(0xff00BFA5);
   static const lightGrey1 = Color(0xffF4F6FA);
   static const lightGreyEA = Color(0xffEAEAEA);
   static const lightGrey4 = Color(0xffE7E9E8);

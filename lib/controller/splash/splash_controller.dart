@@ -8,7 +8,7 @@ class SplashController extends BaseController {
   Future<void> onInit() async {
     super.onInit();
     await Future.delayed(
-      const Duration(milliseconds: 1500),
+      const Duration(seconds: 3),
       () {
         if(LocalSource.instance.getUserType().isEmpty){
           Get.toNamed(AppRoutes.visitor);

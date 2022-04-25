@@ -4,8 +4,8 @@ import 'app_colors.dart';
 
 class AppTextStyles {
   static const appName = TextStyle(
-    color: AppColors.assets,
-    fontSize: 72,
+    color: AppColors.greenForDoughnut,
+    fontSize: 50,
     fontWeight: FontWeight.w700,
   );
   static const appBarTitle = TextStyle(

@@ -15,9 +15,9 @@ class SplashPage extends GetView<SplashController> {
         appBar: AppBar(toolbarHeight: 0),
         body: Center(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Lottie.asset('assets/lottie/lottie1.json'),
+              Lottie.asset('assets/lottie/lottie2.json',height: 200),
               const SizedBox(height: 16),
               const Text(
                 "Red Book",

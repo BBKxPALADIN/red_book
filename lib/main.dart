@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'core/theme/app_theme.dart';
+import 'data/hive/products.dart';
 import 'data/source/local_source.dart';
 import 'bindings/splash_bindings.dart';
 import 'core/constants/constants.dart';
@@ -19,6 +21,9 @@ import 'routes/app_routes.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  /// initial db
+  await Hive.initFlutter();
+  Hive.registerAdapter(ProductAdapter());
   /// local source
   await LocalSource.getInstance();
 
