@@ -11,11 +11,17 @@ import '../../routes/app_routes.dart';
 class AuthController extends BaseController {
   TextEditingController? loginController;
   TextEditingController? passwordController;
+  bool secure = true;
 
   final AuthRepository _repository = AuthRepository();
 
   FocusNode loginFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
+
+  void setSecure() {
+    secure = !secure;
+    update();
+  }
 
   @override
   void onInit() {

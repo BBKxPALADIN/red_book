@@ -10,58 +10,60 @@ class UserTypeBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AdminController>(builder: (controller) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 9.0,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Choose user type',
-                  style: AppTextStyles.bottomSheetTitle,
-                ),
-                IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: const Icon(Icons.check,color: AppColors.assets),
-                )
-              ],
-            ),
-          ),
-          const Divider(height: 1, thickness: 1),
-          ListView.separated(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (ctx, index) => UserTypeItem(
-                    title: controller.types[index].name ?? '',
-                    onTap: () {
-                      controller.setType(controller.types[index].id ?? -1,
-                          controller.types[index].name ?? '');
+    return GetBuilder<AdminController>(
+      builder: (controller) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 9.0,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Choose user type',
+                    style: AppTextStyles.bottomSheetTitle,
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Get.back();
                     },
-                    trail: controller.name ==
-                            (controller.types[index].name ?? '')
-                        ? const Icon(
-                            Icons.check_rounded,
-                            color: AppColors.assets,
-                            size: 24,
-                          )
-                        : const SizedBox.shrink(),
-                  ),
-              separatorBuilder: (ctx, index) => const Padding(
-                    padding: EdgeInsets.only(left: 70.0),
-                    child: Divider(height: 1),
-                  ),
-              itemCount: controller.types.length),
-        ],
-      );
-    });
+                    icon: const Icon(Icons.check, color: AppColors.assets),
+                  )
+                ],
+              ),
+            ),
+            const Divider(height: 1, thickness: 1),
+            ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (ctx, index) => UserTypeItem(
+                      title: controller.types[index].name ?? '',
+                      onTap: () {
+                        controller.setType(controller.types[index].id ?? -1,
+                            controller.types[index].name ?? '');
+                      },
+                      trail: controller.name ==
+                              (controller.types[index].name ?? '')
+                          ? const Icon(
+                              Icons.check_rounded,
+                              color: AppColors.assets,
+                              size: 24,
+                            )
+                          : const SizedBox.shrink(),
+                    ),
+                separatorBuilder: (ctx, index) => const Padding(
+                      padding: EdgeInsets.only(left: 70.0),
+                      child: Divider(height: 1),
+                    ),
+                itemCount: controller.types.length),
+          ],
+        );
+      },
+    );
   }
 }
