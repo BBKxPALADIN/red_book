@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:red_book/base/base_repository.dart';
 import 'package:red_book/data/models/all_researches_response.dart';
+import 'package:red_book/data/models/confirmations_response.dart';
 import 'package:red_book/data/models/personal_info_response.dart';
 
 import '../provider/api_client.dart';
@@ -45,6 +46,16 @@ class ResearcherRepository extends BaseRepository {
     try {
       final response = await _apiClient.getPersonalInfo(id);
       return PersonalInfoResponse.fromJson(response.data);
+    } catch (e, s) {
+      debugPrint("Exception occurred: $e stacktrace: $s");
+      showError(ServerError.withError(error: e as DioError).getError());
+    }
+  }
+
+  Future<dynamic> getConfirmations() async {
+    try {
+      final response = await _apiClient.getConfirmations();
+      return ConfirmationsResponse.fromJson(response.data);
     } catch (e, s) {
       debugPrint("Exception occurred: $e stacktrace: $s");
       showError(ServerError.withError(error: e as DioError).getError());

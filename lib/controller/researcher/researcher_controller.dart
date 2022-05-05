@@ -6,6 +6,7 @@ import 'package:red_book/ui/researcher/profile/rank/rank_page.dart';
 import 'package:red_book/ui/researcher/profile/researchers/researchers_page.dart';
 
 import '../../data/models/all_researches_response.dart';
+import '../../data/models/confirmations_response.dart';
 import '../../data/models/personal_info_response.dart';
 import '../../data/repository/researcher_repository.dart';
 import '../../ui/researcher/profile/notification/notification_page.dart';
@@ -18,6 +19,7 @@ class ResearcherController extends BaseController {
   final TextEditingController description = TextEditingController();
   late PersonalInfoResponse info;
   late AllResearchesResponse all;
+  late ConfirmationsResponse confirmations;
 
   final List<PersonalInfo> list = [
     PersonalInfo(
@@ -40,6 +42,7 @@ class ResearcherController extends BaseController {
   void onInit() {
     getPersonalInfo();
     getAllResearches();
+    getConfirmations();
     super.onInit();
   }
 
@@ -59,6 +62,15 @@ class ResearcherController extends BaseController {
     setLoading(false);
     if (response is AllResearchesResponse) {
       all = response;
+    }
+  }
+
+  Future<void> getConfirmations() async {
+    setLoading(true);
+    final response = await _repository.getConfirmations();
+    setLoading(false);
+    if (response is ConfirmationsResponse) {
+      confirmations = response;
     }
   }
 }

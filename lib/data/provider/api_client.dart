@@ -119,4 +119,7 @@ abstract class ApiClient {
   Future<ResponseHandler> getPersonalInfo(
     @Path('id') id,
   );
+
+  @GET('/v1/research-confirmation')
+  Future<ResponseHandler> getConfirmations();
 }

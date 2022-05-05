@@ -10,7 +10,7 @@ part of 'api_client.dart';
 
 class _ApiClient implements ApiClient {
   _ApiClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'http://18.208.214.204:8000';
+    baseUrl ??= 'http://52.91.49.182:8000/';
   }
 
   final Dio _dio;
@@ -171,6 +171,22 @@ class _ApiClient implements ApiClient {
         _setStreamType<ResponseHandler>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, 'v1/user/${id}',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ResponseHandler.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<ResponseHandler> getConfirmations() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ResponseHandler>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/v1/research-confirmation',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = ResponseHandler.fromJson(_result.data!);
