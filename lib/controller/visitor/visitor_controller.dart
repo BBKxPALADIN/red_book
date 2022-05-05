@@ -16,6 +16,12 @@ class VisitorController extends BaseController {
     super.onInit();
   }
 
+  @override
+  void onReady() {
+    getAllAnimals();
+    super.onReady();
+  }
+
   Future<void> getAllAnimals() async {
     setLoading(true);
     final result = await _repository.getAllAnimals(

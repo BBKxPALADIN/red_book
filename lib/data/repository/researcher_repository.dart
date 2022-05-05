@@ -41,9 +41,9 @@ class ResearcherRepository extends BaseRepository {
     }
   }
 
-  Future<dynamic> getResearcherInfo() async {
+  Future<dynamic> getResearcherInfo(int id) async {
     try {
-      final response = await _apiClient.getPersonalInfo(3);
+      final response = await _apiClient.getPersonalInfo(id);
       return PersonalInfoResponse.fromJson(response.data);
     } catch (e, s) {
       debugPrint("Exception occurred: $e stacktrace: $s");

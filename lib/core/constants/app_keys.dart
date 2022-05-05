@@ -6,6 +6,7 @@ class AppKeys {
   static const accessToken = "access_token";
   static const hasProfile = "has_profile";
   static const userType = "user_type";
+  static const userId = "user_id";
   static const isShow = "isShow";
   static const lock = "lock";
   static const name = "name";

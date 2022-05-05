@@ -37,6 +37,14 @@ class LocalSource {
     return _localStorage?.get(AppKeys.userType, defaultValue: "") ?? '';
   }
 
+  Future<void> setUserId(int userId) async {
+    await _localStorage?.put(AppKeys.userId, userId);
+  }
+
+  int getUserId() {
+    return _localStorage?.get(AppKeys.userId, defaultValue: "") ?? '';
+  }
+
   Future<void> setLock(String lock) async {
     await _localStorage?.put(AppKeys.lock, lock);
   }
@@ -48,6 +56,7 @@ class LocalSource {
   Future<void> removeProfile() async {
     await _localStorage?.delete(AppKeys.hasProfile);
     await _localStorage?.delete(AppKeys.userType);
+    await _localStorage?.delete(AppKeys.userId);
     await _localStorage?.delete(AppKeys.user);
     await _localStorage?.delete(AppKeys.lock);
     await _localStorage?.delete(AppKeys.accessToken);
@@ -55,6 +64,7 @@ class LocalSource {
 
   Future<void> logOut() async {
     await _localStorage?.delete(AppKeys.userType);
+    await _localStorage?.delete(AppKeys.userId);
   }
 
   bool hasProfile() {

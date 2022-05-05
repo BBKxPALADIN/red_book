@@ -54,6 +54,7 @@ class AuthController extends BaseController {
       final userType = result.userType ?? '';
       if (userType.isNotEmpty) {
         LocalSource.instance.setUserType(userType);
+        LocalSource.instance.setUserId(result.userId ?? 0);
         update();
       }
       if (userType == 'superadmin') {

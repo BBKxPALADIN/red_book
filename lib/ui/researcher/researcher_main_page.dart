@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:red_book/core/theme/app_colors.dart';
 import 'package:red_book/data/source/local_source.dart';
-import 'package:red_book/ui/researcher/profile_page.dart';
+import 'package:red_book/ui/researcher/profile/profile_page.dart';
 import 'package:red_book/ui/visitor/all_animals_page.dart';
 import 'all_researches_page.dart';
 import 'confirmations_page.dart';
