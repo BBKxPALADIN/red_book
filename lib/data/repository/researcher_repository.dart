@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:red_book/base/base_repository.dart';
 import 'package:red_book/data/models/all_researches_response.dart';
 import 'package:red_book/data/models/confirmations_response.dart';
+import 'package:red_book/data/models/creature_type_response.dart';
 import 'package:red_book/data/models/personal_info_response.dart';
+import 'package:red_book/data/models/sub_type_response.dart';
 
 import '../provider/api_client.dart';
 import '../provider/server_error.dart';
@@ -56,6 +58,26 @@ class ResearcherRepository extends BaseRepository {
     try {
       final response = await _apiClient.getConfirmations();
       return ConfirmationsResponse.fromJson(response.data);
+    } catch (e, s) {
+      debugPrint("Exception occurred: $e stacktrace: $s");
+      showError(ServerError.withError(error: e as DioError).getError());
+    }
+  }
+
+  Future<dynamic> getCreatureSubType() async {
+    try {
+      final response = await _apiClient.getCreatureSubType();
+      return SubTypeResponse.fromJson(response.data);
+    } catch (e, s) {
+      debugPrint("Exception occurred: $e stacktrace: $s");
+      showError(ServerError.withError(error: e as DioError).getError());
+    }
+  }
+
+  Future<dynamic> getCreatureType() async {
+    try {
+      final response = await _apiClient.getCreatureType();
+      return CreatureTypeResponse.fromJson(response.data);
     } catch (e, s) {
       debugPrint("Exception occurred: $e stacktrace: $s");
       showError(ServerError.withError(error: e as DioError).getError());

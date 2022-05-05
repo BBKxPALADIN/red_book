@@ -13,11 +13,9 @@ class AllAnimalsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.greyMain,
       appBar: AppBar(
-        centerTitle: true,
-        leading: const SizedBox(),
-        title: const Text(
+        title: Text(
           'All Animals',
-          style: AppTextStyles.introTitle,
+          style: AppTextStyles.appName.copyWith(fontSize: 25),
         ),
       ),
       body: GetBuilder<VisitorController>(

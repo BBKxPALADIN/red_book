@@ -7,7 +7,9 @@ import 'package:red_book/ui/researcher/profile/researchers/researchers_page.dart
 
 import '../../data/models/all_researches_response.dart';
 import '../../data/models/confirmations_response.dart';
+import '../../data/models/creature_type_response.dart';
 import '../../data/models/personal_info_response.dart';
+import '../../data/models/sub_type_response.dart';
 import '../../data/repository/researcher_repository.dart';
 import '../../ui/researcher/profile/notification/notification_page.dart';
 
@@ -20,6 +22,8 @@ class ResearcherController extends BaseController {
   late PersonalInfoResponse info;
   late AllResearchesResponse all;
   late ConfirmationsResponse confirmations;
+  late SubTypeResponse subType;
+  late CreatureTypeResponse creatureType;
 
   final List<PersonalInfo> list = [
     PersonalInfo(
@@ -43,6 +47,8 @@ class ResearcherController extends BaseController {
     getPersonalInfo();
     getAllResearches();
     getConfirmations();
+    getCreatureSubType();
+    getCreatureType();
     super.onInit();
   }
 
@@ -71,6 +77,24 @@ class ResearcherController extends BaseController {
     setLoading(false);
     if (response is ConfirmationsResponse) {
       confirmations = response;
+    }
+  }
+
+  Future<void> getCreatureSubType() async {
+    setLoading(true);
+    final response = await _repository.getCreatureSubType();
+    setLoading(false);
+    if (response is SubTypeResponse) {
+      subType = response;
+    }
+  }
+
+  Future<void> getCreatureType() async {
+    setLoading(true);
+    final response = await _repository.getCreatureType();
+    setLoading(false);
+    if (response is CreatureTypeResponse) {
+      creatureType = response;
     }
   }
 }

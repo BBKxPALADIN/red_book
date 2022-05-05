@@ -122,4 +122,10 @@ abstract class ApiClient {
 
   @GET('/v1/research-confirmation')
   Future<ResponseHandler> getConfirmations();
+
+  @GET('/v1/creature-sub-type')
+  Future<ResponseHandler> getCreatureSubType();
+
+  @GET('/v1/creature-type')
+  Future<ResponseHandler> getCreatureType();
 }
