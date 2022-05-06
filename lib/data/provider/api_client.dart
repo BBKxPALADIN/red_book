@@ -8,6 +8,7 @@ import 'package:retrofit/retrofit.dart';
 import '../../core/constants/constants.dart';
 import '../../routes/app_routes.dart';
 import '../models/requests/auth_request.dart';
+import '../models/requests/confirmation_request.dart';
 import '../models/requests/new_research_request.dart';
 import '../models/requests/new_user_request.dart';
 
@@ -102,6 +103,13 @@ abstract class ApiClient {
   );
 
   @GET('/v1/research')
+  Future<ResponseHandler> getResearchesByType(
+      @Query('limit') int limit,
+      @Query('page') int page,
+      @Query('sub_type_id') int subType,
+      );
+
+  @GET('/v1/research')
   Future<ResponseHandler> getUserResearches(
     @Query('limit') int limit,
     @Query('page') int page,
@@ -134,4 +142,9 @@ abstract class ApiClient {
   Future<ResponseHandler> createResearch(
     @Body() NewResearchRequest request,
   );
+
+  @POST('/v1/research-confirmation')
+  Future<ResponseHandler> confirmationRequest(
+      @Body() ConfirmationRequest request,
+      );
 }

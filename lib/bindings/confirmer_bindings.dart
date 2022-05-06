@@ -4,6 +4,6 @@ import '../controller/confirmer/confirmer_controller.dart';
 class ConfirmerBindings extends Bindings {
   @override
   void dependencies() {
-    Get.put<ConfirmerController>(ConfirmerController());
+    Get.lazyPut(()=>ConfirmerController(),fenix: true);
   }
 }

@@ -120,6 +120,26 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<ResponseHandler> getResearchesByType(limit, page, subType) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'limit': limit,
+      r'page': page,
+      r'sub_type_id': subType
+    };
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ResponseHandler>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/v1/research',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ResponseHandler.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<ResponseHandler> getUserResearches(
       limit, page, subTypeId, userId) async {
     const _extra = <String, dynamic>{};
@@ -236,6 +256,23 @@ class _ApiClient implements ApiClient {
         _setStreamType<ResponseHandler>(
             Options(method: 'POST', headers: _headers, extra: _extra)
                 .compose(_dio.options, '/v1/research',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ResponseHandler.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<ResponseHandler> confirmationRequest(request) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ResponseHandler>(
+            Options(method: 'POST', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/v1/research-confirmation',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = ResponseHandler.fromJson(_result.data!);

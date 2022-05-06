@@ -14,6 +14,8 @@ class SplashController extends BaseController {
           Get.offAndToNamed(AppRoutes.admin);
         }else if(LocalSource.instance.getUserType()=='researchers'){
           Get.offAndToNamed(AppRoutes.researcher);
+        }else if(LocalSource.instance.getUserType()=='research_confirmers'){
+          Get.offAndToNamed(AppRoutes.confirmer);
         }else{
           Get.offAndToNamed(AppRoutes.visitor);
         }

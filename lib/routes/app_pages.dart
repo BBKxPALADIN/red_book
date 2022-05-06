@@ -8,7 +8,9 @@ import 'package:red_book/ui/admin/new_user_page.dart';
 import 'package:red_book/ui/auth/login_page.dart';
 import 'package:red_book/ui/researcher/researcher_main_page.dart';
 import 'package:red_book/ui/visitor/visitor_page.dart';
+import '../bindings/confirmer_bindings.dart';
 import '../bindings/splash_bindings.dart';
+import '../ui/confirmer/confirmer_main_page.dart';
 import '../ui/internet_connection/internet_connection_page.dart';
 import '../ui/splash/splash_page.dart';
 import 'app_routes.dart';
@@ -47,6 +49,11 @@ class AppPages {
       name: AppRoutes.researcher,
       page: () => const ResearcherMainPage(),
       binding: ResearcherBindings(),
+    ),
+    GetPage(
+      name: AppRoutes.confirmer,
+      page: () => const ConfirmerMainPage(),
+      binding: ConfirmerBindings(),
     ),
   ];
 }

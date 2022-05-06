@@ -37,9 +37,6 @@ class ResearcherController extends BaseController {
     PersonalInfo(
         'Notifications', const Icon(Icons.notifications, color: Colors.white)),
     PersonalInfo('Profile', const Icon(Icons.person, color: Colors.white)),
-    PersonalInfo('All Researchers',
-        const Icon(Icons.supervised_user_circle_outlined, color: Colors.white)),
-    PersonalInfo('Rank', const Icon(Icons.star_border, color: Colors.white)),
   ];
 
   final List<Widget> pages = [
