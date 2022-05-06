@@ -7,6 +7,8 @@ import 'package:red_book/data/models/creature_type_response.dart';
 import 'package:red_book/data/models/personal_info_response.dart';
 import 'package:red_book/data/models/sub_type_response.dart';
 
+import '../models/new_research_response.dart';
+import '../models/requests/new_research_request.dart';
 import '../provider/api_client.dart';
 import '../provider/server_error.dart';
 
@@ -78,6 +80,16 @@ class ResearcherRepository extends BaseRepository {
     try {
       final response = await _apiClient.getCreatureType();
       return CreatureTypeResponse.fromJson(response.data);
+    } catch (e, s) {
+      debugPrint("Exception occurred: $e stacktrace: $s");
+      showError(ServerError.withError(error: e as DioError).getError());
+    }
+  }
+
+  Future<dynamic> createResearch(NewResearchRequest request) async {
+    try {
+      final response = await _apiClient.createResearch(request);
+      return NewResearchResponse.fromJson(response.data);
     } catch (e, s) {
       debugPrint("Exception occurred: $e stacktrace: $s");
       showError(ServerError.withError(error: e as DioError).getError());

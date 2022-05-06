@@ -69,7 +69,7 @@ class AdminController extends BaseController {
     _createUser(request);
   }
 
-  void clear() {
+  void clearFields() {
     loginController.clear();
     passwordController.clear();
     nameController.clear();
@@ -84,6 +84,7 @@ class AdminController extends BaseController {
     setLoading(false);
     if (result is NewUserResponse) {
       debugPrint('New user successfully created!!!');
+      clearFields();
     }
   }
 

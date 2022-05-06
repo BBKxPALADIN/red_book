@@ -8,6 +8,7 @@ import 'package:retrofit/retrofit.dart';
 import '../../core/constants/constants.dart';
 import '../../routes/app_routes.dart';
 import '../models/requests/auth_request.dart';
+import '../models/requests/new_research_request.dart';
 import '../models/requests/new_user_request.dart';
 
 part 'api_client.g.dart';
@@ -128,4 +129,9 @@ abstract class ApiClient {
 
   @GET('/v1/creature-type')
   Future<ResponseHandler> getCreatureType();
+
+  @POST('/v1/research')
+  Future<ResponseHandler> createResearch(
+    @Body() NewResearchRequest request,
+  );
 }

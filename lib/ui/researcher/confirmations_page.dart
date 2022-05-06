@@ -25,7 +25,7 @@ class ConfirmationsPage extends StatelessWidget {
             return ListView.separated(
               padding: const EdgeInsets.all(12),
               physics: const BouncingScrollPhysics(),
-              itemCount: controller.all.researches?.length ?? 0,
+              itemCount: controller.confirmations.confirmations?.length ?? 0,
               itemBuilder: (context, index) => Container(
                 padding: const EdgeInsets.all(12),
                 decoration: const BoxDecoration(
@@ -70,17 +70,18 @@ class ConfirmationsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Visibility(
-                          visible: (controller.confirmations.confirmations?[index]
-                              .isConfirmed ??
+                          visible: (controller.confirmations
+                                  .confirmations?[index].isConfirmed ??
                               false),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                '+'+(controller.confirmations.confirmations?[index]
-                                    .coinsAmount
-                                    .toString() ??
-                                    ''),
+                                '+' +
+                                    (controller.confirmations
+                                            .confirmations?[index].coinsAmount
+                                            .toString() ??
+                                        ''),
                                 style: AppTextStyles.normalBlack15,
                               ),
                               const Icon(
@@ -111,7 +112,6 @@ class ConfirmationsPage extends StatelessWidget {
                                 .copyWith(color: AppColors.white),
                           ),
                         ),
-
                       ],
                     ),
                   ],
